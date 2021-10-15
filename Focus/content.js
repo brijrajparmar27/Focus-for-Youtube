@@ -23,6 +23,10 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
         for(x of xyz){
             x.style.display = "none";
         }
+        var xyz = document.querySelectorAll("#comments");
+        for(x of xyz){
+            x.style.display = "none";
+        }
     }
 
     if (msg.text && (msg.text == 'changed')) {
@@ -31,10 +35,12 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
         //console.log(currently);
         if(currently === "https://www.youtube.com/")
         {
+            console.log("Home");
             Home();
         }
         else if(currently.includes("watch"))
         {
+            console.log("Watch");
             Player();
         }
         else if(currently.includes("results"))
